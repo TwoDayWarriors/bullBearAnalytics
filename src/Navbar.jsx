@@ -52,9 +52,9 @@ const Navbar = ({ onSelect }) => {
                   selectedOption === 'Performance' ? 'active' : ''
                 }`}
                 href="#"
-                onClick={() => handleOptionSelect('Sign Up')}
+                onClick={() => handleOptionSelect('SignUp')}
               >
-                Sign Up
+                SignUp
               </a>
             </li>
             <li className="nav-item">
