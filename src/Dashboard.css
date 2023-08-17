@@ -2,18 +2,21 @@
 
 .dashboard {
     /* Add any additional styling for the dashboard container */
-    margin: 20px; /* Example margin for spacing */
+    margin: 40px; /* Example margin for spacing */
   }
   
   .card-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 40px;
     margin-top: 20px;
   }
   
   .card {
     max-width: 20rem;
+    background-color: #f8f9fa;
+    height: 80px;
+    animation: glowingBackground 5s infinite alternate; /* Add animation */
   }
   
   .card-header {
