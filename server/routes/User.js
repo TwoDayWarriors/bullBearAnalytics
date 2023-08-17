@@ -1,11 +1,11 @@
 import express from "express";
-const userRoute = express.Router();
 import asyncHandler from "express-async-handler";
-// import User from "../models/User";
 import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
+// import authMiddleware from "../middlewares/authMiddleware.js";
 
-// const usersRoute = express.Router();
+const userRoute = express.Router();
+
 //register
 userRoute.post(
   "/register",
@@ -50,31 +50,38 @@ userRoute.post(
 );
 
 //Update User
-userRoute.put("/update", (req, res) => {
-  res.send("Update route");
-});
+userRoute.put(
+  "/update/:id",
+  asyncHandler(async (req, res) => {
+    try {
+      const user = await User.findByIdAndUpdate(req.params.id, req.body)
+      res.status(200);
+      res.json(user);
+    } catch (error) {
+      res.status(500);
+      throw new Error('Update failed')
+    }
+  })
+);
 
 //Delete User ends with :id to make use of it being dynamic
-userRoute.delete("/:id", (req, res) => {
-  res.send("Delete route");
-});
+userRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id)
+    res.status(200);
+    res.send(user);
+  } catch (error) {
+    res.status(500);
+    throw new Error('Server Error');
+  }
+}));
 
 //fetch users
 
-userRoute.get("/", (req, res) => {
-  res.send("Fetch route");
+userRoute.get("/", async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
 });
 
 export default userRoute;
 
-// async (req,res) =>
-// {
-//         try {
-//         const {name, email, password} = req.body;
-//         const user = await User.create({name, email, password})
-//         console.log(user);
-//         res.send(user)
-//         }catch (error) {
-//         res.send(error)
-//         }
-// }
