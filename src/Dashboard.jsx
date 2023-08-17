@@ -3,13 +3,13 @@ import Card from './Card'; // Import your Card component here
 import './Dashboard.css';
 
 const Dashboard = () => {
-  // Example financial data
+  // Fake financial data
   const financialData = [
     { title: 'Company Name', amount: '$100,000' },
     { title: 'Company Name', amount: '$30,000' },
     { title: 'Company Name', amount: '$70,000' },
     { title: 'Company Name', amount: '70%' },
-    // Add more financial data here
+   
   ];
 
   return (
