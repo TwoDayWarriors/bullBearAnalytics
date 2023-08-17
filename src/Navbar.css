@@ -1,0 +1,46 @@
+.navbar {
+    background-color: #f8f9fa;
+    height: 80px;
+    animation: glowingBackground 2s infinite alternate; /* Add animation */
+  }
+  
+  .navbar-brand {
+    color: #333;
+    font-weight: bold;
+  }
+  
+
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #007bff;
+  }
+ 
+  .navbar-nav .dropdown-menu {
+    background-color: #f8f9fa;
+  }
+  
+
+  .form-control {
+    border-radius: 0.25rem;
+  }
+  
+
+  .btn-secondary {
+    border-radius: 0.25rem;
+  }
+  
+  @keyframes glowingBackground {
+    from {
+      background-color: #f8f9fa;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+    to {
+      background-color: rgba(0, 123, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+    }
+  }
+  
