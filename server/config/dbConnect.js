@@ -8,6 +8,7 @@ const dbConnect = () => {
       useNewUrlParser: true,
       // Remove the useFindAndModify option
       // useFindAndModify: false,
+      dbName: "Bull_Bear_User_DB",
     })
     .then(() => console.log("Db Connected"))
     .catch((err) => console.log("Error: Connecting to MongoDB: ", err));
