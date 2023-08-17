@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Navbar.css'; // Import the CSS file
 
 const Navbar = ({ onSelect }) => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -9,29 +10,76 @@ const Navbar = ({ onSelect }) => {
   };
 
   return (
-    <nav className="navbar">
-      <div className="nav-logo">
-        <h4>BullBearAnalytics</h4>
-      </div>
-      <div className="selection-menu">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-bs-theme="light">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">
+          BullBearAnalytics
+        </a>
         <button
-          className={selectedOption === 'Price' ? 'active' : ''}
-          onClick={() => handleOptionSelect('Price')}
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          Price
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <button
-          className={selectedOption === 'Performance' ? 'active' : ''}
-          onClick={() => handleOptionSelect('Performance')}
-        >
-          Performance
-        </button>
-        <button
-          className={selectedOption === 'Technical' ? 'active' : ''}
-          onClick={() => handleOptionSelect('Technical')}
-        >
-          Technical
-        </button>
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <ul className="navbar-nav me-auto">
+            <li className="nav-item">
+              <a
+                className={`nav-link ${selectedOption === 'Home' ? 'active' : ''}`}
+                href="#"
+                onClick={() => handleOptionSelect('Home')}
+              >
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className={`nav-link ${selectedOption === 'Price' ? 'active' : ''}`}
+                href="#"
+                onClick={() => handleOptionSelect('Login')}
+              >
+                Login
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className={`nav-link ${
+                  selectedOption === 'Performance' ? 'active' : ''
+                }`}
+                href="#"
+                onClick={() => handleOptionSelect('Sign Up')}
+              >
+                Sign Up
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className={`nav-link ${
+                  selectedOption === 'Technical' ? 'active' : ''
+                }`}
+                href="#"
+                onClick={() => handleOptionSelect('Dashboard')}
+              >
+                Dashboard
+              </a>
+            </li>
+          </ul>
+          <form className="d-flex">
+            <input
+              className="form-control me-sm-2"
+              type="search"
+              placeholder="Search"
+            />
+            <button className="btn btn-secondary my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
       </div>
     </nav>
   );
