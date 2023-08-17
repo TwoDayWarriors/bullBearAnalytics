@@ -8,15 +8,38 @@
   .card-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 80px;
     margin-top: 20px;
   }
   
   .card {
+    position: relative; /* Add relative positioning */
     max-width: 20rem;
-    background-color: #f8f9fa;
     height: 80px;
-    animation: glowingBackground 5s infinite alternate; /* Add animation */
+  }
+  
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    animation: glowingBorder 1s infinite alternate;
+  }
+  
+  @keyframes glowingBorder {
+    from {
+      border-color: transparent;
+      box-shadow: 0 0 10px #f8f9fa(220, 53, 69, 0.5); /* Example glow color */
+    }
+    to {
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(8, 185, 250, 0.995); /* Example stronger glow color */
+    }
   }
   
   .card-header {
