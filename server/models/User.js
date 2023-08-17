@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 // import bcrypt from "bcryptjs";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
 
 //Schema
 const UserSchema = new mongoose.Schema({
@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-UserSchema.pre("save", async (next) => {
+UserSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }
@@ -29,7 +29,7 @@ UserSchema.pre("save", async (next) => {
 });
 
 //Verify password
-UserSchema.methods.isPasswordMatch = async (enteredPassword) => {
+UserSchema.methods.isPasswordMatch = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
