@@ -43,7 +43,7 @@ export const LineChart = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=F14G2FCXVLP5G3QQ`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=demo`)).data
             setData(data)
         }
         fetch()
@@ -52,7 +52,11 @@ export const LineChart = () => {
     
 
     let dates = dataG['Time Series (Daily)']
-    console.log(dates)
+    let dateStrings = []
+
+    for (let d in dates){
+        dateStrings.push(d)
+    }
 
 
 
@@ -63,12 +67,6 @@ export const LineChart = () => {
         {
           label: '2023-08-17',
           data: [1,5,7,9,5,4,3],
-          borderColor: 'rgb(216, 0, 115)',
-          backgroundColor: 'rgba(216, 0, 115, 0.5)',
-        },
-        {
-          label: '2023-08-16',
-          data: [9,5,4,3,5,2,7],
           borderColor: 'rgb(100,118,135)',
           backgroundColor: 'rgba(100,118,135, 0.5)',
         },
