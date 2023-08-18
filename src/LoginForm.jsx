@@ -1,8 +1,35 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom'; // Import useHistory from React Router
 import './LoginForm.css'; // Import the corresponding CSS file
 
 const LoginForm = () => {
+  const history = useHistory(); // Get the history object
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+
+  const handleLoginFormSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post('http://localhost:5000/api/users/login', { email, password })
+      .then(result => {
+        console.log(result.data); // Log the server response
+
+        if (result.data === "Success") {
+          // Redirect to StockMarket after successful login
+          history.push('/stock-market'); // Replace '/stock-market' with your desired route
+        } else if (result.data === "Password is incorrect") {
+          console.log("Password is incorrect");
+        } else if (result.data === "No record existed") {
+          console.log("User not found");
+        }
+      })
+      .catch(err => {
+        console.log("An error occurred while logging in:", err);
+      });
+  };
 
   const handleRememberMeChange = () => {
     setRememberMe(!rememberMe);
@@ -10,19 +37,41 @@ const LoginForm = () => {
 
   return (
     <div className="login-form-container">
-      <form>
+      <form onSubmit={handleLoginFormSubmit}>
         <h2>Login</h2>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1" className="form-label mt-4">Email address</label>
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+          <input
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1" className="form-label mt-4">Password</label>
-          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" autoComplete="off" />
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+            autoComplete="off"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <div className="form-group form-check remember-me-container">
           <div className="remember-me-inner">
-            <input type="checkbox" className="form-check-input" id="rememberMe" checked={rememberMe} onChange={handleRememberMeChange} />
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="rememberMe"
+              checked={rememberMe}
+              onChange={handleRememberMeChange}
+            />
             <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
           </div>
         </div>

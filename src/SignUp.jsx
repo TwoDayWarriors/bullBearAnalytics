@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './SignUp.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
+    // lastName: '',
     email: '',
     password: '',
   });
@@ -22,9 +23,24 @@ const SignUp = () => {
 
     console.log('Form submitted:', formData);
 
+    axios.post('http://localhost:5000/api/users/register', {
+      name: formData.name,
+      // lastName: formData.lastName,
+      email: formData.email,
+      password: formData.password,
+    })
+    .then(result => {
+      console.log(result.data); // Log the response data
+      // Perform navigation logic here (e.g., using React Router)
+    })
+    .catch(err => {
+      console.log(err); // Log the error for debugging
+      // Set error state or display an error message to the user
+    });
+
     setFormData({
-      firstName: '',
-      lastName: '',
+      name: '',
+      // lastName: '',
       email: '',
       password: '',
     });
@@ -36,18 +52,18 @@ const SignUp = () => {
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-container">
-            <label htmlFor="firstName">First Name:</label>
+            <label htmlFor="name">First Name:</label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
+              id="name"
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               required
             />
           </div>
-          <div className="input-container">
-            <label htmlFor="lastName">Last Name:</label>
+          {/* <div className="input-container"> */}
+            {/* <label htmlFor="lastName">Last Name:</label>
             <input
               type="text"
               id="lastName"
@@ -56,7 +72,7 @@ const SignUp = () => {
               onChange={handleChange}
               required
             />
-          </div>
+          </div> */}
           <div className="input-container">
             <label htmlFor="email">Email:</label>
             <input
