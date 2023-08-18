@@ -2,7 +2,7 @@ import express from "express";
 import asyncHandler from "express-async-handler";
 import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
-// import authMiddleware from "../middlewares/authMiddleware.js";
+
 
 const userRoute = express.Router();
 
@@ -25,29 +25,20 @@ userRoute.post(
 //Login
 //Login
 userRoute.post(
-  "/login",
+  '/login',
   asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
 
     if (user && (await user.isPasswordMatch(password))) {
-      //set status code
-      res.status(200);
-
-      res.json({
-        _id: user._id,
-        name: user.name,
-        password: user.password,
-        email: user.password,
-        token: generateToken(user._id),
-      });
+      res.status(200).json({ message: 'Success' });
     } else {
-      res.status(401);
-      throw new Error("Invalid credentials");
+      res.status(401).json({ message: 'Invalid credentials' });
     }
   })
 );
+
 
 //Update User
 userRoute.put(
