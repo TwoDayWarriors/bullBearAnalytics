@@ -22,7 +22,7 @@ import {
     Legend
   );
   
-  export const options = {
+  const options = {
     responsive: true,
     plugins: {
       legend: {
@@ -54,6 +54,8 @@ export const LineChart = () => {
     let dates = dataG['Time Series (Daily)']
     console.log(dates)
 
+
+
     const labels = info
     const data = {
       labels,
@@ -77,7 +79,7 @@ export const LineChart = () => {
 
 
   return (
-    <div>LineChart
+    <div>
         <Line options={options} data={data} />
     </div>
   )
