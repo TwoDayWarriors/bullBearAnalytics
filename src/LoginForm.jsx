@@ -21,8 +21,10 @@ const LoginForm = () => {
           <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" autoComplete="off" />
         </div>
         <div className="form-group form-check remember-me-container">
-          <input type="checkbox" className="form-check-input" id="rememberMe" checked={rememberMe} onChange={handleRememberMeChange} />
-          <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+          <div className="remember-me-inner">
+            <input type="checkbox" className="form-check-input" id="rememberMe" checked={rememberMe} onChange={handleRememberMeChange} />
+            <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+          </div>
         </div>
         <button type="submit" className="btn btn-primary mt-4">Login</button>
       </form>
