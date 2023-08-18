@@ -8,7 +8,7 @@ const SignUp = () => {
     email: '',
     password: '',
   });
-
+.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
