@@ -39,7 +39,7 @@ import {
 
 export const LineChart = () => {
     let [dataG, setData] = useState([])
-    let info = ['1. open','2. high', '3. low', '4. close', '5. volume']
+    let info = ['1. open','2. high', '3. low', '4. close']
 
     useEffect(() => {
         const fetch = async () => {
@@ -52,11 +52,20 @@ export const LineChart = () => {
     
 
     let dates = dataG['Time Series (Daily)']
-    let dateStrings = []
+    let augDate = [] //stores the last 100 dates starting with the day before today
 
     for (let d in dates){
-        dateStrings.push(d)
+        let dateArray = d.split('-')
+        if (dateArray[1] == '08'){
+            augDate .push(d)
+
+        }
+    
     }
+
+    console.log(augDate)
+
+
 
 
 
