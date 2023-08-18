@@ -1,0 +1,73 @@
+/* Dashboard.css */
+
+.dashboard {
+    /* Add any additional styling for the dashboard container */
+    margin: 40px; /* Example margin for spacing */
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 80px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    position: relative; /* Add relative positioning */
+    max-width: 20rem;
+    height: 80px;
+  }
+  
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    animation: glowingBorder 1s infinite alternate;
+  }
+  
+  @keyframes glowingBorder {
+    from {
+      border-color: transparent;
+      box-shadow: 0 0 10px #f8f9fa(220, 53, 69, 0.5); /* Example glow color */
+    }
+    to {
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(8, 185, 250, 0.995); /* Example stronger glow color */
+    }
+  }
+  
+  .card-header {
+    /* Add styles for the card header */
+    background-color: #333; /* Example background color */
+    color: white; /* Example text color */
+  }
+  
+  .card-body {
+    /* Add styles for the card body */
+  }
+  
+  .card-title {
+    /* Add styles for the card title */
+    font-size: 1.5rem; /* Example font size */
+  }
+  
+  .card-text {
+    /* Add styles for the card text */
+  }
+  
+  .bg-danger {
+    /* Add styles for danger card */
+    background-color: #dc3545; /* Example background color */
+  }
+  
+  .bg-light {
+    /* Add styles for light card */
+    background-color: #f8f9fa; /* Example background color */
+  }
+  
