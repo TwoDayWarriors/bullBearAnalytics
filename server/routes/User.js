@@ -24,22 +24,50 @@ userRoute.post(
 
 //Login
 //Login
-userRoute.post(
-  '/login',
-  asyncHandler(async (req, res) => {
-    const { email, password } = req.body;
+// Import necessary modules and User model
 
-    const user = await User.findOne({ email });
+ 
 
-    if (user && (await user.isPasswordMatch(password))) {
-      res.status(200).json({ message: 'Success' });
-    } else {
-      res.status(401).json({ message: 'Invalid credentials' });
-    }
-  })
-);
+const router = express.Router();
 
+ 
 
+// ...
+
+ 
+
+// Login route
+router.post('/login', asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+ 
+
+  // Find the user with the provided email
+  const user = await User.findOne({ email });
+
+ 
+
+  if (user && await user.isPasswordMatch(password)) {
+    // Generate and send a JWT token to the client for authentication
+    // You might want to implement this based on your authentication strategy
+    const token = generateToken(user._id);
+
+ 
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      token,
+    });
+  } else {
+    res.status(401).json({ message: 'Invalid credentials' });
+  }
+}));
+
+ 
+
+// ...
 //Update User
 userRoute.put(
   "/update/:id",
