@@ -16,7 +16,7 @@ const SignUp = () => {
       [name]: value,
     }));
   };
-.
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
