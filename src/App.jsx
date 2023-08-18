@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import Home from './Home';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard'; // Import the Dashboard component
+import SignUp from './SignUp'; 
+
 import './App.css';
 import 'bootswatch/dist/vapor/bootstrap.min.css';
 
@@ -23,6 +25,8 @@ function App() {
           <LoginForm />
         ) : selectedOption === 'Dashboard' ? (
           <Dashboard /> // Display Dashboard component when 'Dashboard' is selected
+        ) : selectedOption === 'SignUp' ? (
+          <SignUp /> 
         ) : (
           <p>Displaying {selectedOption} data...</p>
         )}

@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+
+// import bcrypt from "bcryptjs";
 import bcrypt from "bcrypt";
 
 // Schema
@@ -27,7 +29,6 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-// Verify password
 UserSchema.methods.isPasswordMatch = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
