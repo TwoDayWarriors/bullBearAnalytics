@@ -11,6 +11,11 @@
     gap: 80px;
     margin-top: 20px;
   }
+
+  .title{
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
   
   .card {
     position: relative; /* Add relative positioning */

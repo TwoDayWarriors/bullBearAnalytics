@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-const SimpleBarChart = () => {
-  const [stockData, setStockData] = useState([]);
+function BarChartAMZN() {
+  const [stockDataA, setStockDataA] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://financialmodelingprep.com/api/v3/income-statement/AAPL?limit=10&apikey=578b0d3a91ea1580ec0b79802e29a079");
-        const data = await response.json();
+        const response = await fetch("https://financialmodelingprep.com/api/v3/income-statement/AMZN?limit=10&apikey=c82da036c18b7efd7bb7262e57a2b187");
+        const data = await response.json(); 
         console.log(data);
-        setStockData(data); 
+        setStockDataA(data);
       } catch (error) {
-        console.error("Error fetching income data", error);
+        console.error("Error fetching data");
       }
     };
     fetchData();
   }, []);
 
-  const years = stockData.map(item => item.date.split('-')[0]);
-  const revenue = stockData.map(item => item.revenue);
-  const profit = stockData.map(item => item.grossProfit);
-  const netIncome = stockData.map(item => item.netIncome);
+  const years = stockDataA.map(item => item.calendarYear);
+  const revenue = stockDataA.map(item => item.revenue);
+  const profit = stockDataA.map(item => item.grossProfit);
+  const netIncome = stockDataA.map(item => item.netIncome);
 
   const data = {
     labels: years,
@@ -51,7 +51,6 @@ const SimpleBarChart = () => {
       },
     ],
   };
-
   const options = {
     scales: {
       y: {
@@ -60,9 +59,7 @@ const SimpleBarChart = () => {
     },
   };
 
-  return <Bar data={data} options={options} />;
-};
+  return <Bar data={data} options={options} /> 
+}
 
-
-
-export default SimpleBarChart;
+export default BarChartAMZN;

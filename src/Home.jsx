@@ -1,6 +1,12 @@
+
+
+
+// import homeImage from './images/BearBull.png'; // Import the image
+
 import React, { useRef, useEffect } from 'react';
 import homeVideo from './images/BullBear.mp4';
 import './Home.css';
+
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -20,6 +26,12 @@ const Home = () => {
 
   return (
     <div className="home">
+
+      <h2>Welcome to BullBearAnalytics</h2>
+      <p>Your home page content goes here...</p>
+      <img src={homeImage} alt="Home" /> {/* Use the imported image */}
+
+
       <div className="content">
         <h2>Welcome to BullBearAnalytics</h2>
       </div>
@@ -37,6 +49,7 @@ const Home = () => {
         </video>
         <div className="video-overlay"></div> {/* Add this overlay */}
       </div>
+
     </div>
   );
 };
