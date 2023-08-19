@@ -1,9 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import errorMiddlewareHandler from "./middlewares/errorMiddlewareHandler.js";
-// import usersRoute from "./routes/usersRoute.js";
-import usersRoute from "./routes/user.js";
-// import dbConnect from "./config/dbConnect.mjs";
+import usersRoute from "./routes/User.js";
 import dbConnect from "./config/dbConnect.js";
 import cors from "cors";
 

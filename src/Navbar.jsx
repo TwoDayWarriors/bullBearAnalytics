@@ -75,7 +75,7 @@ const Navbar = ({ onSelect }) => {
               type="search"
               placeholder="Search"
             />
-            <button type="button" class="btn btn-outline-danger">Submit</button>
+            <button type="button" className="btn btn-outline-danger">Submit</button>
           </form>
         </div>
       </div>

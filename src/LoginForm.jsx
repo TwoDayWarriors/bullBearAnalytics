@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'; // Import useHistory from React Router
-import './LoginForm.css'; // Import the corresponding CSS file
+import './LoginForm.css'; 
 
-const LoginForm = () => {
-  const history = useHistory(); // Get the history object
+const LoginForm = ({setIsAuthenticated}) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,20 +11,21 @@ const LoginForm = () => {
   const handleLoginFormSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:5000/api/users/login', { email, password })
-      .then(result => {
-        console.log(result.data); // Log the server response
-
+    axios
+      .post("http://localhost:5000/api/users/login", { email, password }) 
+      .then((result) => {
+        console.log(result.data);
         if (result.data === "Success") {
-          // Redirect to StockMarket after successful login
-          history.push('/stock-market'); // Replace '/stock-market' with your desired route
+          // Handle successful login hereling 
+          setIsAuthenticated(true);
+          console.log("Login successful");
         } else if (result.data === "Password is incorrect") {
           console.log("Password is incorrect");
         } else if (result.data === "No record existed") {
           console.log("User not found");
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("An error occurred while logging in:", err);
       });
   };
@@ -39,8 +38,12 @@ const LoginForm = () => {
     <div className="login-form-container">
       <form onSubmit={handleLoginFormSubmit}>
         <h2>Login</h2>
+
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1" className="form-label mt-4">Email address</label>
+          <label htmlFor="exampleInputEmail1" className="form-label mt-4">
+            Email address
+          </label>
+
           <input
             type="email"
             className="form-control"
@@ -51,8 +54,12 @@ const LoginForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="exampleInputPassword1" className="form-label mt-4">Password</label>
+          <label htmlFor="exampleInputPassword1" className="form-label mt-4">
+            Password
+          </label>
+
           <input
             type="password"
             className="form-control"
@@ -63,6 +70,7 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+
         <div className="form-group form-check remember-me-container">
           <div className="remember-me-inner">
             <input
@@ -72,10 +80,16 @@ const LoginForm = () => {
               checked={rememberMe}
               onChange={handleRememberMeChange}
             />
-            <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+
+            <label className="form-check-label" htmlFor="rememberMe">
+              Remember me
+            </label>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary mt-4">Login</button>
+
+        <button type="submit" className="btn btn-primary mt-4">
+          Submit
+        </button>
       </form>
     </div>
   );
