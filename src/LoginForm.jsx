@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginForm.css'; 
 
+import { useNavigate } from 'react-router-dom';
+
 const LoginForm = ({setIsAuthenticated}) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+
+  let navigate = useNavigate()
 
   const handleLoginFormSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +32,7 @@ const LoginForm = ({setIsAuthenticated}) => {
       .catch((err) => {
         console.log("An error occurred while logging in:", err);
       });
+      navigate('/dashboard')
   };
 
   const handleRememberMeChange = () => {

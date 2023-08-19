@@ -27,9 +27,9 @@ export const Table = () => {
     
 
   return (
-    <div>
+    <div className='mt-5'>
         <input 
-            className="form-control form-control-lg mb-4" 
+            className="form-control form-control-lg mb-2" 
             type="text" value={companySymbol} 
             onChange={event => setCompanySymbol(event.target.value)} 
             placeholder="Enter company symbol" id="inputLarge" 

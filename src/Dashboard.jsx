@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card'; // Import your Card component here
 import './Dashboard.css';
+import { Table } from './Table';
 
 const Dashboard = () => {
   // Fake financial data
@@ -20,6 +21,7 @@ const Dashboard = () => {
           <Card key={index} title={data.title} amount={data.amount} />
         ))}
       </div>
+      <Table />
     </div>
   );
 };
