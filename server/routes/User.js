@@ -4,10 +4,10 @@ import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
 
 
-const userRoute = express.Router();
+const usersRoute = express.Router();
 
 //register
-userRoute.post(
+usersRoute.post(
   "/register",
   asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
@@ -28,7 +28,7 @@ userRoute.post(
 
  
 
-const router = express.Router();
+
 
  
 
@@ -37,7 +37,7 @@ const router = express.Router();
  
 
 // Login route
-router.post('/login', asyncHandler(async (req, res) => {
+usersRoute.post('/login', asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
  
@@ -69,7 +69,7 @@ router.post('/login', asyncHandler(async (req, res) => {
 
 // ...
 //Update User
-userRoute.put(
+usersRoute.put(
   "/update/:id",
   asyncHandler(async (req, res) => {
     try {
@@ -84,7 +84,7 @@ userRoute.put(
 );
 
 //Delete User ends with :id to make use of it being dynamic
-userRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
+usersRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id)
     res.status(200);
@@ -97,10 +97,10 @@ userRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
 
 //fetch users
 
-userRoute.get("/", async (req, res) => {
+usersRoute.get("/", async (req, res) => {
   const users = await User.find({});
   res.json(users);
 });
 
-export default userRoute;
+export default usersRoute;
 

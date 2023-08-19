@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'; // Import useHistory from React Router
-import './LoginForm.css'; // Import the corresponding CSS file
+import './LoginForm.css'; 
 
-const LoginForm = () => {
-  const history = useHistory(); // Get the history object
+const LoginForm = ({setIsAuthenticated}) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,18 +12,19 @@ const LoginForm = () => {
     e.preventDefault();
 
     axios
-      .get("http://localhost:5000/api/users", { email, password })
+      .post("http://localhost:5000/api/users/login", { email, password }) 
       .then((result) => {
         console.log(result.data);
-
         if (result.data === "Success") {
+          // Handle successful login hereling 
+          setIsAuthenticated(true);
+          console.log("Login successful");
         } else if (result.data === "Password is incorrect") {
           console.log("Password is incorrect");
         } else if (result.data === "No record existed") {
           console.log("User not found");
         }
       })
-
       .catch((err) => {
         console.log("An error occurred while logging in:", err);
       });
@@ -89,7 +88,7 @@ const LoginForm = () => {
         </div>
 
         <button type="submit" className="btn btn-primary mt-4">
-          Login
+          Submit
         </button>
       </form>
     </div>
