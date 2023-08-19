@@ -11,9 +11,10 @@
     align-items: center; 
   }
   
-  .remember-me-container {
-    margin-top: 10px; 
+  .remember-me-inner {
     display: flex;
-    align-items: center; 
+    align-items: center; /* Vertical alignment */
+    justify-content: center; /* Horizontal alignment */
   }
+  
   
