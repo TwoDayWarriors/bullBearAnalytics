@@ -1,0 +1,24 @@
+.home {
+    position: relative;
+  }
+  
+  .video-container {
+    position: relative;
+  }
+  
+  .background-video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none; /* Allow interaction with the video behind the overlay */
+  }
+  
