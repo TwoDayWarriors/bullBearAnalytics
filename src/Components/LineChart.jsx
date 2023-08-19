@@ -22,26 +22,7 @@ import {
     Legend
   );
   
-  const options = {
-    y:{
-      min: 0,
-      max: 200,
-      ticks: {stepSize: 10}
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Stock Time Series',
-      },
-    },
-  };
-
-
-
+ 
 export const LineChart = () => {
     let [dataG, setData] = useState([])
     let[selectedDate, setSelectedDate] = useState("Select a date")
@@ -90,6 +71,24 @@ export const LineChart = () => {
           backgroundColor: 'rgba(100,118,135, 0.5)',
         },
       ],
+    };
+
+    const options = {
+      y:{
+        min: selectedDate != "Select a date" ? values[2] - 5 : 120,
+        max: selectedDate != "Select a date" ? values[1] + 10 : 150,
+        ticks: {stepSize: 5}
+      },
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        // title: {
+        //   display: true,
+        //   text: 'Stock Time Series',
+        // },
+      },
     };
 
 
