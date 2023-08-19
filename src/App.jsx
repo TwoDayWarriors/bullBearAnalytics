@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Home from './Home';
-import { LineChart } from './Components/LineChart';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard'; // Import the Dashboard component
 import SignUp from './SignUp'; 
@@ -31,7 +30,6 @@ function App() {
         ) : (
           <p>Displaying {selectedOption} data...</p>
         )}
-        <LineChart/>
       </div>
     </div>
   );
