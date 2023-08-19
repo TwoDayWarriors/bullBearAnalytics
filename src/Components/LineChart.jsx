@@ -23,6 +23,11 @@ import {
   );
   
   const options = {
+    y:{
+      min: 0,
+      max: 200,
+      ticks: {stepSize: 10}
+    },
     responsive: true,
     plugins: {
       legend: {
@@ -39,7 +44,7 @@ import {
 
 export const LineChart = () => {
     let [dataG, setData] = useState([])
-    let[selectedDate, setSelectedDate] = useState({})
+    let[selectedDate, setSelectedDate] = useState("Select a date")
     let info = ['1. open','2. high', '3. low', '4. close']
 
     useEffect(() => {
@@ -65,11 +70,13 @@ export const LineChart = () => {
     }
 
     console.log(augDate[0])
-    // let marketValue = dates.map((i) =>{})
+    let values = []
 
+    if (selectedDate != "Select a date"){
 
-
-
+    values = Object.values(dates[selectedDate])
+    console.log(values)
+    }
 
 
     const labels = info
@@ -78,13 +85,12 @@ export const LineChart = () => {
       datasets: [
         {
           label: selectedDate,
-          data: [1,5,7,9,5,4,3],
+          data: values,
           borderColor: 'rgb(100,118,135)',
           backgroundColor: 'rgba(100,118,135, 0.5)',
         },
       ],
     };
-
 
 
 
