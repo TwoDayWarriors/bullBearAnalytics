@@ -21,7 +21,6 @@ useEffect(()=>{
 
   fetchData()
 },[])
-  // Fake financial data
   const financialData = [
     { title: stockDataC[0]?.symbol, amount: `${stockDataC[0]?.price} USD `},
     { title: stockDataC[1]?.symbol, amount: `${stockDataC[1]?.price} USD` },
