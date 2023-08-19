@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card'; // Import your Card component here
 import './Dashboard.css';
+import { Table } from './Table';
 
 const Dashboard = () => {
   const[stockDataC,setStockDataC]= useState([])
@@ -42,6 +43,7 @@ useEffect(()=>{
           <Card key={index} title={data.title} amount={data.amount}  />
         ))}
       </div>
+      <Table />
     </div>
   );
 };

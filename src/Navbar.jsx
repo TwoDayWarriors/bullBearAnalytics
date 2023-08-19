@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './Navbar.css'; // Import the CSS file
 
+import { Link } from 'react-router-dom'
+
+
 const Navbar = ({ onSelect }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     onSelect(option);
   };
+
+  
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-bs-theme="light">
@@ -34,8 +40,9 @@ const Navbar = ({ onSelect }) => {
                 href="#"
                 onClick={() => handleOptionSelect('Home')}
               >
-                Home
+                {/* Home */}
               </a>
+                <Link to="/" className='nav-link'>Home</Link>
             </li>
             <li className="nav-item">
               <a
@@ -43,8 +50,9 @@ const Navbar = ({ onSelect }) => {
                 href="#"
                 onClick={() => handleOptionSelect('Login')}
               >
-                Login
+                {/* Login */}
               </a>
+              <Link to="/loginForm" className='nav-link'>Login</Link>
             </li>
             <li className="nav-item">
               <a
@@ -54,8 +62,9 @@ const Navbar = ({ onSelect }) => {
                 href="#"
                 onClick={() => handleOptionSelect('SignUp')}
               >
-                SignUp
+                {/* SignUp */}
               </a>
+              <Link to="/signUp" className='nav-link'>SignUp</Link>
             </li>
             <li className="nav-item">
               <a
@@ -65,18 +74,22 @@ const Navbar = ({ onSelect }) => {
                 href="#"
                 onClick={() => handleOptionSelect('Dashboard')}
               >
-                Dashboard
+                {/* Dashboard */}
               </a>
+              <Link to="/dashboard" className='nav-link'>Dashboard</Link>
             </li>
           </ul>
-          <form className="d-flex">
+          {/* <form className="d-flex" >
             <input
               className="form-control me-sm-2"
               type="search"
               placeholder="Search"
             />
-            <button type="button" className="btn btn-outline-danger">Submit</button>
-          </form>
+            <button type="button" className="btn btn-outline-danger" >Submit</button>
+          </form> */}
+          <a className="navbar-brand" href="#">
+          BullBearAnalytics
+        </a>
         </div>
       </div>
     </nav>
@@ -84,3 +97,4 @@ const Navbar = ({ onSelect }) => {
 };
 
 export default Navbar;
+//comment
