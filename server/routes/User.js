@@ -2,12 +2,12 @@ import express from "express";
 import asyncHandler from "express-async-handler";
 import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
-// import authMiddleware from "../middlewares/authMiddleware.js";
 
-const userRoute = express.Router();
+
+const usersRoute = express.Router();
 
 //register
-userRoute.post(
+usersRoute.post(
   "/register",
   asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
@@ -24,33 +24,52 @@ userRoute.post(
 
 //Login
 //Login
-userRoute.post(
-  "/login",
-  asyncHandler(async (req, res) => {
-    const { email, password } = req.body;
+// Import necessary modules and User model
 
-    const user = await User.findOne({ email });
+ 
 
-    if (user && (await user.isPasswordMatch(password))) {
-      //set status code
-      res.status(200);
 
-      res.json({
-        _id: user._id,
-        name: user.name,
-        password: user.password,
-        email: user.password,
-        token: generateToken(user._id),
-      });
-    } else {
-      res.status(401);
-      throw new Error("Invalid credentials");
-    }
-  })
-);
 
+ 
+
+// ...
+
+ 
+
+// Login route
+usersRoute.post('/login', asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+ 
+
+  // Find the user with the provided email
+  const user = await User.findOne({ email });
+
+ 
+
+  if (user && await user.isPasswordMatch(password)) {
+    // Generate and send a JWT token to the client for authentication
+    // You might want to implement this based on your authentication strategy
+    const token = generateToken(user._id);
+
+ 
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      token,
+    });
+  } else {
+    res.status(401).json({ message: 'Invalid credentials' });
+  }
+}));
+
+ 
+
+// ...
 //Update User
-userRoute.put(
+usersRoute.put(
   "/update/:id",
   asyncHandler(async (req, res) => {
     try {
@@ -65,7 +84,7 @@ userRoute.put(
 );
 
 //Delete User ends with :id to make use of it being dynamic
-userRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
+usersRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id)
     res.status(200);
@@ -78,10 +97,10 @@ userRoute.delete("/delete/:id", asyncHandler( async (req, res) => {
 
 //fetch users
 
-userRoute.get("/", async (req, res) => {
+usersRoute.get("/", async (req, res) => {
   const users = await User.find({});
   res.json(users);
 });
 
-export default userRoute;
+export default usersRoute;
 

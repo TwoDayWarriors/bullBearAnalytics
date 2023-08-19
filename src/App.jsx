@@ -4,12 +4,12 @@ import Home from './Home';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard'; // Import the Dashboard component
 import SignUp from './SignUp'; 
-
 import './App.css';
 import 'bootswatch/dist/vapor/bootstrap.min.css';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState(null);
+  
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
