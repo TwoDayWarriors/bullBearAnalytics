@@ -26,6 +26,7 @@ import {
 export const LineChart = () => {
     let [dataG, setData] = useState([])
     let[selectedDate, setSelectedDate] = useState("Select a date")
+    let[selectedInfo, setSelectedInfo] = useState("Select an option")
     let info = ['1. open','2. high', '3. low', '4. close']
 
     useEffect(() => {
@@ -47,7 +48,6 @@ export const LineChart = () => {
             augDate.push(d)
 
         }
-    
     }
 
     console.log(augDate[0])
@@ -76,7 +76,7 @@ export const LineChart = () => {
     const options = {
       y:{
         min: selectedDate != "Select a date" ? values[2] - 5 : 120,
-        max: selectedDate != "Select a date" ? values[1] + 10 : 150,
+        max: selectedDate != "Select a date" ? values[1] + 10: 150,
         ticks: {stepSize: 5}
       },
       responsive: true,
@@ -100,7 +100,14 @@ export const LineChart = () => {
         <select value ={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}> 
         
         <option value= 'Select a date'>Select a date</option>
-        {augDate.map((d) => <option value = {d} key = {augDate.indexOf(d)} >{d}</option>)}
+        {augDate.map((d) => <option value = {d} key = {augDate.indexOf(d)}> {d} </option>)}
+
+        </select>
+
+        <select value ={selectedInfo} onChange={(e) => setSelectedInfo(e.target.value)}> 
+        
+        <option value= 'Daily prices by date'>Select price</option>
+        {info.map((i) => <option value = {i} key = {info.indexOf(i)}> {i} </option>)}
 
         </select>
     </div>
