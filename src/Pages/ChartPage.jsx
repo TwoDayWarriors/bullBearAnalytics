@@ -1,11 +1,11 @@
 import BarChart from "../Components/BarChart";
 import DoughnutChart from "../Components/DoughnutChart";
 import PieChart from "../Components/PieChart";
-import '../DashboardAAPL.css';
 import { LineChart } from '../Components/LineChart';
 import { LineChart2 } from '../Components/LineChart2';
 import { Volume } from '../Components/Volume'
 import { Table2 } from "../Components/Table2";
+import '../DashboardAAPL.css'
 
 
 const ChartPage = () => {
@@ -13,10 +13,10 @@ const ChartPage = () => {
     <div className="home">
       
       <h1>Apple</h1>
-      {/* <div className="charts-container">
+      <div className="charts-container">
         
       
-        <div className="chart">
+        {/* <div className="chart">
         <p>International Filings </p>
           <BarChart symbol="AAPL"/>
         </div>
@@ -47,8 +47,13 @@ const ChartPage = () => {
         </div>
 
         <br/>
-        <Table2 />
+        
+        <div className="chart">
+          <Table2 />
+        </div>
+        
 
+    </div>
     </div>
   );
 };
