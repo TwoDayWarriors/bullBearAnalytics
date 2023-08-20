@@ -8,8 +8,9 @@ export const Table2 = (symbol) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=1FIZJL7M2DFILOEC`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=demo`)).data
             setData(data)
+            console.log(data)
         }
         fetch();
     },[])
