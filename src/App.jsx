@@ -1,4 +1,3 @@
-import  { useState } from 'react';
 import Navbar from './Navbar';
 import Home from './Home';
 import LoginForm from './LoginForm';
@@ -11,17 +10,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DashboardAAPL from './DashboardAAPL';
 import DashboardTSLA from './DashboardTSLA'
 import DashboardAMZN from './DashboardAMZN';
+import { Table2 } from './Components/Table2';
+import ChartPage from './Pages/ChartPage';
+
+import DashboardTest from './DashboardTest';
 
 
 
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState(null);
-  
-
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-  };
+ 
 
   return (
     <div className="App">
@@ -32,9 +30,12 @@ function App() {
         <Route path="/loginForm" exact={true} element={<LoginForm />} />
         <Route path="/signUp" exact={true} element={<SignUp />} />
         <Route path="/dashboard" exact={true} element={<Dashboard />} />
-        <Route path="/dashboardAAPL" exact={true} element={<DashboardAAPL />} />
+        {/* <Route path="/dashboardAAPL" exact={true} element={<DashboardAAPL />} /> */}
         <Route path="/dashboardTSLA" exact={true} element={<DashboardTSLA />} />
         <Route path="/dashboardAMZN" exact={true} element={<DashboardAMZN />} />
+        <Route path="/dashboardTest" exact={true} element={<DashboardTest />} />
+        <Route path="/test" exact={true} element={<Table2 symbol='IBM'/>} />
+        <Route path="/dashboardAAPL" exact={true} element={<ChartPage symbol='AAPL' />} />
         </Routes>
       </BrowserRouter>
 

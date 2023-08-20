@@ -5,29 +5,26 @@ import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
   } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+  import { Bar } from 'react-chartjs-2';
 
   ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend
   );
-  
- 
-export const LineChart2 = ({symbol}) => {
+
+export const Volume = ({symbol}) => {
+
+    
     let [dataG, setData] = useState([])
-    let[selectedInfo, setSelectedInfo] = useState("Select an option")
-    let info = ['1. open','2. high', '3. low', '4. close']
 
     useEffect(() => {
         const fetch = async () => {
@@ -52,11 +49,12 @@ export const LineChart2 = ({symbol}) => {
 
     // console.log(augDate[0])
     let values = []
-
     for (let d in dates){
-        values.push(dates[d][selectedInfo])
+        values.push(dates[d]["5. volume"])
     }
+    console.log(values)
 
+   
 
 
     const labels = augDate
@@ -64,45 +62,29 @@ export const LineChart2 = ({symbol}) => {
       labels,
       datasets: [
         {
-          label: selectedInfo,
+          label: "volume",
           data: values,
-          borderColor: 'rgb(100,118,135)',
           backgroundColor: 'rgba(100,118,135, 0.5)',
         },
       ],
     };
 
     const options = {
-      y:{
-        min:  120,
-        max:  150,
-        ticks: {stepSize: 1}
-      },
+        
       responsive: true,
       plugins: {
         legend: {
           position: 'top',
         },
-        // title: {
-        //   display: true,
-        //   text: 'Stock Time Series',
-        // },
+        title: {
+          display: true,
+          text: 'Volume',
+        },
       },
     };
-
-
-
   return (
     <div>
-        <Line options={options} data={data} />
-
-
-        <select value ={selectedInfo} onChange={(e) => setSelectedInfo(e.target.value)}> 
-        
-        <option value= 'Daily prices by date'>Select price</option>
-        {info.map((i) => <option value = {i} key = {info.indexOf(i)}> {i} </option>)}
-
-        </select>
+        <Bar options={options} data={data} />
     </div>
   )
 }

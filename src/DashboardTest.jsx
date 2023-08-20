@@ -5,7 +5,7 @@ import { Table } from './Table';
 
 import { useNavigate } from "react-router-dom";
 
-const Dashboard = () => {
+const DashboardTest = () => {
   const[stockDataC,setStockDataC]= useState([])
 
   let navigate = useNavigate();
@@ -50,6 +50,7 @@ useEffect(()=>{
     }
   };
 
+
   return (
     <div className="dashboard">
       <h1 className='title'>Financial Information</h1>
@@ -63,4 +64,4 @@ useEffect(()=>{
   );
 };
 
-export default Dashboard;
+export default DashboardTest;
