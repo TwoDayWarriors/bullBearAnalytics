@@ -10,7 +10,7 @@ function DoughnutChart({symbol}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://financialmodelingprep.com/api/v3/balance-sheet-statement/${symbol}?apikey=21cff28783fa1e446aa186c87fff60a3`);
+        const response = await fetch(`https://financialmodelingprep.com/api/v3/balance-sheet-statement/${symbol}?apikey=6bd4262bf3bc14b781f7a692c03980ce`);
         const data = await response.json();
         console.log(data);
         setStockDataDA(data);
