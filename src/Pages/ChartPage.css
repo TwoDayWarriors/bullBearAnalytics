@@ -1,0 +1,32 @@
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    /* height: 500px; */
+  }
+
+  .charts-container2 {
+    display: flex;
+    justify-content: space-between;
+    /* height: 800px; */
+  }
+  
+  h1{
+    margin-top: 50px;
+  }
+  .chart {
+    flex: 1;
+    margin: 20px 10px;
+    /* width: 800%;
+    height: 1000%; */
+    
+  }
+
+  .line{
+    flex:1;
+    margin: 20px 10px;
+    /* width: 800%;
+    height: 900%; */
+  }
+  .volume{
+    margin-bottom: 80px;
+  }

@@ -13,7 +13,7 @@ const Dashboard = () => {
 useEffect(()=>{
   const fetchData = async()=>{
     try {
-      const response = await fetch("https://api.finage.co.uk/last/trade/stocks?symbols=AAPL,TSLA,AMZN&apikey=API_KEY27NDLDF7WIAIDVWVSC31D174A0ZISEJF")
+      const response = await fetch("https://api.finage.co.uk/last/trade/stocks?symbols=AAPL,TSLA,AMZN&apikey=API_KEYb27juQJAvZL78T0dKIRqAuf3f0EwbVIr1LcqjNjuPSFmxo")
       const data = await response.json()
        
       console.log(data)

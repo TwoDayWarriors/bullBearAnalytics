@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import './Line.css'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -31,7 +32,7 @@ export const LineChart2 = ({symbol}) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=1FIZJL7M2DFILOEC`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=67A4LGBFK68FLXF7`)).data
             setData(data)
         }
         fetch();
@@ -65,8 +66,9 @@ export const LineChart2 = ({symbol}) => {
         {
           label: selectedInfo,
           data: values,
-          borderColor: 'rgb(100,118,135)',
-          backgroundColor: 'rgba(100,118,135, 0.5)',
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
         },
       ],
     };
@@ -74,8 +76,8 @@ export const LineChart2 = ({symbol}) => {
     const options = {
       y:{
         min:  120,
-        max:  150,
-        ticks: {stepSize: 1}
+        max:  300,
+        ticks: {stepSize: 5}
       },
       responsive: true,
       plugins: {
@@ -96,7 +98,7 @@ export const LineChart2 = ({symbol}) => {
         <Line options={options} data={data} />
 
 
-        <select value ={selectedInfo} onChange={(e) => setSelectedInfo(e.target.value)}> 
+        <select  className="btn btn-outline-info" id='Drop' value ={selectedInfo} onChange={(e) => setSelectedInfo(e.target.value)} > 
         
         <option value= 'Daily prices by date'>Select price</option>
         {info.map((i) => <option value = {i} key = {info.indexOf(i)}> {i} </option>)}

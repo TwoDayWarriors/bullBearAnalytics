@@ -2,15 +2,16 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 
-export const Table2 = (symbol) => {
+export const Table2 = ({symbol}) => {
     let [dataG, setData] = useState([])
     let info = ['1. open','2. high', '3. low', '4. close', '5. volume']
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=demo`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=67A4LGBFK68FLXF7`)).data
             setData(data)
             console.log(data)
+            
         }
         fetch();
     },[])
@@ -25,6 +26,9 @@ export const Table2 = (symbol) => {
 
         }
     }
+
+    console.log(dates)
+    
    
   return (
     <div>
@@ -43,7 +47,8 @@ export const Table2 = (symbol) => {
                 {augDate.map(i =>(
                     <tr key={augDate.indexOf(i)} className="table-active">
                         <td>{i}</td>
-                        <td>{dates[i][info[0]]}</td>
+                        <td>{dates[i][info[0]]}</td>  
+
                         <td>{dates[i][info[1]]}</td>
                         <td>{dates[i][info[2]]}</td>
                         <td>{dates[i][info[3]]}</td>
