@@ -32,7 +32,7 @@ export const Volume = ({symbol}) => {
             setData(data)
         }
         fetch();
-    },[symbol])
+    },[])
 
     
 

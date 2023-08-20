@@ -20,7 +20,7 @@ function DoughnutChart({symbol}) {
     };
 
     fetchData();
-  }, [symbol]);
+  }, []);
 
   const years = stockDataDA.map(item => item.calendarYear);
   const retainedEarnings = stockDataDA.map(item => item.retainedEarnings);

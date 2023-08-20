@@ -19,7 +19,7 @@ const BarChart = ({symbol}) => {
       }
     };
     fetchData();
-  }, [symbol]);
+  }, []);
 
   const years = stockData.map(item => item.date.split('-')[0]);
   const revenue = stockData.map(item => item.revenue);

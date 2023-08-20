@@ -35,7 +35,7 @@ export const LineChart2 = ({symbol}) => {
             setData(data)
         }
         fetch();
-    },[symbol])
+    },[])
 
     
 

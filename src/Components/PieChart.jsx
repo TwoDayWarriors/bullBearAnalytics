@@ -20,7 +20,7 @@ function PieChart({symbol}) {
     };
 
     fetchData();
-  }, [symbol]);
+  }, []);
 
   const years = stockDataPA.map(item => item.date.split('-')[0]);
   const stockPrice = stockDataPA.map(item => item.stockPrice);

@@ -13,7 +13,7 @@ const ChartPage = () => {
     <div className="home">
       
       <h1>Apple</h1>
-      <div className="charts-container">
+      {/* <div className="charts-container">
         
       
         <div className="chart">
@@ -27,7 +27,7 @@ const ChartPage = () => {
         <div className="chart">
         <p> Company Enterprise Value </p>
           <PieChart symbol="AAPL" />
-        </div>
+        </div> */}
 
         <br/>
 
@@ -49,7 +49,6 @@ const ChartPage = () => {
         <br/>
         <Table2 />
 
-      </div>
     </div>
   );
 };

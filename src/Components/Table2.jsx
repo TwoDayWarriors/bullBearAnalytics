@@ -12,7 +12,7 @@ export const Table2 = (symbol) => {
             setData(data)
         }
         fetch();
-    },[symbol])
+    },[])
 
     let dates = dataG['Time Series (Daily)']
     let augDate = []
