@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import homeVideo from './images/BullBear.mp4';
 import './Home.css';
-import { Table } from './Components/Table';
 
 
 
@@ -42,7 +41,6 @@ const Home = () => {
         </video>
         <div className="video-overlay"></div> {/* Add this overlay */}
       </div>
-      <Table/>
 
     </div>
   );

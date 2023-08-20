@@ -41,23 +41,22 @@ export const LineChart2 = ({symbol}) => {
 
     let dates = dataG['Time Series (Daily)']
     let augDate = [] //stores the last 100 dates starting with the day before today
+    let values = []
 
     for (let d in dates){
         let dateArray = d.split('-')
         if (dateArray[1] == '08'){
             augDate.push(d)
-
         }
-    }
 
-    // console.log(augDate[0])
-    let values = []
-
-    for (let d in dates){
         values.push(dates[d][selectedInfo])
     }
 
-
+    // console.log(augDate[0])
+   
+    // for (let d in dates){
+    //     values.push(dates[d][selectedInfo])
+    // }
 
     const labels = augDate
     const data = {

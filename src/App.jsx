@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DashboardAAPL from './DashboardAAPL';
 import DashboardTSLA from './DashboardTSLA'
 import DashboardAMZN from './DashboardAMZN';
+import { Table2 } from './Components/Table2';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/dashboardAAPL" exact={true} element={<DashboardAAPL />} />
         <Route path="/dashboardTSLA" exact={true} element={<DashboardTSLA />} />
         <Route path="/dashboardAMZN" exact={true} element={<DashboardAMZN />} />
+        <Route path="/1" exact={true} element={<Table2 />} />
         </Routes>
       </BrowserRouter>
 
