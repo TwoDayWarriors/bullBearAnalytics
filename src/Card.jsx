@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'; // Import PropTypes
 
 const Card = ({ title, amount, description, showMore, onToggleDescription, navToNewPage }) => {
   return (
-    <div className="card" onClick={navToNewPage}>
+    <div className="card" onClick={()=> navToNewPage(title)}>
       <div className="card-header">{title}</div>
       <div className="card-body">
         <h4 className="card-title">{amount}</h4>
