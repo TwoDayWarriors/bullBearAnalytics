@@ -30,11 +30,11 @@ useEffect(()=>{
     { title: stockDataC[0]?.symbol, amount: `${stockDataC[0]?.price} USD `},
     { title: stockDataC[1]?.symbol, amount: `${stockDataC[1]?.price} USD` },
     { title: stockDataC[2]?.symbol, amount: `${stockDataC[2]?.price} USD` },
-    { title: "GOOG", amount:  " 128.17 USD" },
-    { title: "MSFT", amount: " 316.48 USD" },
-    { title: "BTCUSD", amount: " USD" },
-    { title: "MA", amount: "369.365USD" },
-    { title: "ORCL", amount: "316.103USD" },
+    { title: "GOOG", amount: "128.2 USD" },
+    { title: "MSFT", amount: "316.5 USD" },
+    { title: "BTCUSD", amount: "26,066.90USD" },
+    { title: "MA", amount: "369.4 USD" },
+    { title: "ORCL", amount: "316.1 USD" },
    
    
   ];
