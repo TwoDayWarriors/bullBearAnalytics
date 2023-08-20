@@ -75,3 +75,4 @@ const Navbar = ({ onSelect }) => {
 };
 
 export default Navbar;
+.
