@@ -10,7 +10,7 @@ function PieChart({symbol}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://financialmodelingprep.com/api/v3/enterprise-values/${symbol}?limit=10&apikey=c82da036c18b7efd7bb7262e57a2b187`);
+        const response = await fetch(`https://financialmodelingprep.com/api/v3/enterprise-values/${symbol}?limit=10&apikey=21cff28783fa1e446aa186c87fff60a3`);
         const data = await response.json();
         console.log(data);
         setStockDataPA(data);

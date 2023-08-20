@@ -28,7 +28,7 @@ export const Volume = ({symbol}) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=1FIZJL7M2DFILOEC`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=67A4LGBFK68FLXF7`)).data
             setData(data)
         }
         fetch();
@@ -52,7 +52,7 @@ export const Volume = ({symbol}) => {
     for (let d in dates){
         values.push(dates[d]["5. volume"])
     }
-    console.log(values)
+    // console.log(values)
 
    
 
@@ -64,7 +64,9 @@ export const Volume = ({symbol}) => {
         {
           label: "volume",
           data: values,
-          backgroundColor: 'rgba(100,118,135, 0.5)',
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
         },
       ],
     };

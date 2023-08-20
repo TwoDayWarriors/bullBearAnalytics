@@ -31,7 +31,7 @@ export const LineChart = ({symbol}) => {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=1FIZJL7M2DFILOEC`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=67A4LGBFK68FLXF7`)).data
             setData(data)
         }
         fetch();
@@ -67,8 +67,9 @@ export const LineChart = ({symbol}) => {
         {
           label: selectedDate,
           data: values,
-          borderColor: 'rgb(100,118,135)',
-          backgroundColor: 'rgba(100,118,135, 0.5)',
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
         },
       ],
     };
@@ -97,7 +98,7 @@ export const LineChart = ({symbol}) => {
     <div>
         <Line options={options} data={data} />
 
-        <select value ={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}> 
+        <select className="btn btn-outline-info" id='Drop' value ={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}> 
         
         <option value= 'Select a date'>Select a date</option>
         {augDate.map((d) => <option value = {d} key = {augDate.indexOf(d)}> {d} </option>)}
