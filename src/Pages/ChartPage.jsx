@@ -4,6 +4,7 @@ import PieChartAAPL from "./PieChartAAPL";
 import './DashboardAAPL.css';
 import { LineChart } from './Components/LineChart';
 
+
 const DashboardAAPL = () => {
   return (
     <div className="home">

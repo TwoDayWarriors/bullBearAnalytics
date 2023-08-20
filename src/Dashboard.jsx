@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './Card'; // Import your Card component here
 import './Dashboard.css';
 import { Table } from './Table';
