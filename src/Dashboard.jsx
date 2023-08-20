@@ -48,15 +48,6 @@ useEffect(()=>{
     }else if(str === "AMZN"){
       navigate("/dashboardAMZN");
     }
-
-    // if(financialData[0].title === "AAPL"){
-    //   console.log(financialData[0].title)
-    //   navigate("/dashboardAAPL");
-    // }else if(financialData[1].title === "TSLA"){
-    //   navigate("/dashboardTSLA");
-    // }else if (financialData[2].title === "AMZN"){
-    //   navigate("/dashboardAMZN");
-    // }
   };
 
   return (
