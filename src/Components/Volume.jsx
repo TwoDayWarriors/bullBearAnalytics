@@ -5,29 +5,26 @@ import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
   } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+  import { Bar } from 'react-chartjs-2';
 
   ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend
   );
-  
- 
-export const LineChart = ({symbol}) => {
+
+export const Volume = ({symbol}) => {
+
+    
     let [dataG, setData] = useState([])
-    let[selectedDate, setSelectedDate] = useState("Select a date")
-    let info = ['1. open','2. high', '3. low', '4. close']
 
     useEffect(() => {
         const fetch = async () => {
@@ -35,7 +32,7 @@ export const LineChart = ({symbol}) => {
             setData(data)
         }
         fetch();
-    },[])
+    },[symbol])
 
     
 
@@ -52,59 +49,42 @@ export const LineChart = ({symbol}) => {
 
     // console.log(augDate[0])
     let values = []
-
-    if (selectedDate != "Select a date"){
-
-    values = Object.values(dates[selectedDate])
-    // console.log(values)
+    for (let d in dates){
+        values.push(dates[d]["5. volume"])
     }
+    console.log(values)
+
+   
 
 
-    const labels = info
+    const labels = augDate
     const data = {
       labels,
       datasets: [
         {
-          label: selectedDate,
+          label: "volume",
           data: values,
-          borderColor: 'rgb(100,118,135)',
           backgroundColor: 'rgba(100,118,135, 0.5)',
         },
       ],
     };
 
     const options = {
-      y:{
-        min: selectedDate != "Select a date" ? values[2] - 5 : 120,
-        max: selectedDate != "Select a date" ? values[1] + 10: 150,
-        ticks: {stepSize: 1}
-      },
+        
       responsive: true,
       plugins: {
         legend: {
           position: 'top',
         },
-        // title: {
-        //   display: true,
-        //   text: 'Stock Time Series',
-        // },
+        title: {
+          display: true,
+          text: 'Volume',
+        },
       },
     };
-
-
-
   return (
     <div>
-        <Line options={options} data={data} />
-
-        <select value ={selectedDate} onChange={(e) => setSelectedDate(e.target.value)}> 
-        
-        <option value= 'Select a date'>Select a date</option>
-        {augDate.map((d) => <option value = {d} key = {augDate.indexOf(d)}> {d} </option>)}
-
-        </select>
-
-      
+        <Bar options={options} data={data} />
     </div>
   )
 }

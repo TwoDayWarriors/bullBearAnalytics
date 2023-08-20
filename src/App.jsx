@@ -1,4 +1,3 @@
-import  { useState } from 'react';
 import Navbar from './Navbar';
 import Home from './Home';
 import LoginForm from './LoginForm';
@@ -16,12 +15,7 @@ import DashboardAMZN from './DashboardAMZN';
 
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState(null);
-  
-
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-  };
+ 
 
   return (
     <div className="App">
