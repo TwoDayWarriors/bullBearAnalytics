@@ -1,5 +1,3 @@
-
-
 import React, { useRef, useEffect } from 'react';
 import homeVideo from './images/BullBear.mp4';
 import './Home.css';

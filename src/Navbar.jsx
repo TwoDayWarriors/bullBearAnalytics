@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
+import NavPic from './images/BearBullHead.png';
 import './Navbar.css'; // Import the CSS file
-
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ onSelect }) => {
   const [selectedOption, setSelectedOption] = useState(null);
-
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     onSelect(option);
   };
 
-  
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-bs-theme="light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           BullBearAnalytics
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -33,63 +29,45 @@ const Navbar = ({ onSelect }) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
-          <ul className="navbar-nav me-auto">
+          <ul className="navbar-nav mx-auto">
             <li className="nav-item">
-              <a
+              <Link
+                to="/"
                 className={`nav-link ${selectedOption === 'Home' ? 'active' : ''}`}
-                href="#"
                 onClick={() => handleOptionSelect('Home')}
               >
-                {/* Home */}
-              </a>
-                <Link to="/" className='nav-link'>Home</Link>
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className={`nav-link ${selectedOption === 'Price' ? 'active' : ''}`}
-                href="#"
+              <Link
+                to="/loginForm"
+                className={`nav-link ${selectedOption === 'Login' ? 'active' : ''}`}
                 onClick={() => handleOptionSelect('Login')}
               >
-                {/* Login */}
-              </a>
-              <Link to="/loginForm" className='nav-link'>Login</Link>
+                Login
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className={`nav-link ${
-                  selectedOption === 'Performance' ? 'active' : ''
-                }`}
-                href="#"
+              <Link
+                to="/signUp"
+                className={`nav-link ${selectedOption === 'SignUp' ? 'active' : ''}`}
                 onClick={() => handleOptionSelect('SignUp')}
               >
-                {/* SignUp */}
-              </a>
-              <Link to="/signUp" className='nav-link'>SignUp</Link>
+                SignUp
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                className={`nav-link ${
-                  selectedOption === 'Technical' ? 'active' : ''
-                }`}
-                href="#"
+              <Link
+                to="/dashboard"
+                className={`nav-link ${selectedOption === 'Dashboard' ? 'active' : ''}`}
                 onClick={() => handleOptionSelect('Dashboard')}
               >
-                {/* Dashboard */}
-              </a>
-              <Link to="/dashboard" className='nav-link'>Dashboard</Link>
+                Dashboard
+              </Link>
             </li>
           </ul>
-          {/* <form className="d-flex" >
-            <input
-              className="form-control me-sm-2"
-              type="search"
-              placeholder="Search"
-            />
-            <button type="button" className="btn btn-outline-danger" >Submit</button>
-          </form> */}
-          <a className="navbar-brand" href="#">
-          BullBearAnalytics
-        </a>
+          <img src={NavPic} alt="BullBearLogo" height="80"/> 
         </div>
       </div>
     </nav>
@@ -97,4 +75,3 @@ const Navbar = ({ onSelect }) => {
 };
 
 export default Navbar;
-//comment
