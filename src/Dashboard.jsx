@@ -3,8 +3,13 @@ import Card from './Card'; // Import your Card component here
 import './Dashboard.css';
 import { Table } from './Table';
 
+import { useNavigate } from "react-router-dom";
+
 const Dashboard = () => {
   const[stockDataC,setStockDataC]= useState([])
+
+  let navigate = useNavigate();
+
 useEffect(()=>{
   const fetchData = async()=>{
     try {
@@ -34,12 +39,23 @@ useEffect(()=>{
    
   ];
 
+  const navToNewPage = () => {
+    if(financialData[0].title === "AAPL"){
+      // console.log(financialData[0].title)
+      navigate("/dashboardAAPL");
+    }else if(financialData[1].title === "TSLA"){
+      navigate("/dashboardTSLA");
+    }else if (financialData[2].title === "AMZN"){
+      navigate("/dashboardAMZN");
+    }
+  };
+
   return (
     <div className="dashboard">
       <h1 className='title'>Financial Information</h1>
       <div className="card-grid">
         {financialData.map((data, index) => (
-          <Card key={index} title={data.title} amount={data.amount}  />
+          <Card key={index} title={data.title} amount={data.amount} navToNewPage={navToNewPage} />
         ))}
       </div>
       <Table />

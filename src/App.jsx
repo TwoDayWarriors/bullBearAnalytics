@@ -8,6 +8,11 @@ import './App.css';
 import 'bootswatch/dist/vapor/bootstrap.min.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DashboardAAPL from './DashboardAAPL';
+import DashboardTSLA from './DashboardTSLA'
+import DashboardAMZN from './DashboardAMZN';
+
+
 
 
 function App() {
@@ -27,6 +32,9 @@ function App() {
         <Route path="/loginForm" exact={true} element={<LoginForm />} />
         <Route path="/signUp" exact={true} element={<SignUp />} />
         <Route path="/dashboard" exact={true} element={<Dashboard />} />
+        <Route path="/dashboardAAPL" exact={true} element={<DashboardAAPL />} />
+        <Route path="/dashboardTSLA" exact={true} element={<DashboardTSLA />} />
+        <Route path="/dashboardAMZN" exact={true} element={<DashboardAMZN />} />
         </Routes>
       </BrowserRouter>
 
