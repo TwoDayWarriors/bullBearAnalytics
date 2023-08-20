@@ -9,7 +9,7 @@ export const Table = () => {
 
     
     const fetch = async ()=>{
-        const dynamicURL = `${basePath}/${companySymbol}?apikey=20a475aa3df8b11460d0357a1afad362`;
+        const dynamicURL = `${basePath}/${companySymbol}?apikey=6bd4262bf3bc14b781f7a692c03980ce`;
 
         const result = (await axios.get(dynamicURL)).data;
         console.log(result)
