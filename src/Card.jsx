@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
 // import './card.css'
 
-const Card = ({ title, amount, description, showMore, onToggleDescription }) => {
+const Card = ({ title, amount, description, showMore, onToggleDescription, navToNewPage }) => {
   return (
-    <div className="card">
+    <div className="card" onClick={navToNewPage}>
       <div className="card-header">{title}</div>
       <div className="card-body">
         <h4 className="card-title">{amount}</h4>

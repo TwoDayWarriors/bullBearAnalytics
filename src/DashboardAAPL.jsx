@@ -1,7 +1,9 @@
+import React from 'react'
 import BarChartAAPL from "./BarChartAAPL";
 import DoughnutChartAAPL from "./DoughnutChartAAPL";
 import PieChartAAPL from "./PieChartAAPL";
 import './DashboardAAPL.css';
+import { LineChart } from './LineChart';
 const DashboardAAPL = () => {
   return (
     <div className="home">
@@ -21,6 +23,10 @@ const DashboardAAPL = () => {
         <div className="chart">
         <p> Company Enterprise Value </p>
           <PieChartAAPL />
+        </div>
+        <div className="chart">
+        <p> Company Enterprise Value </p>
+          <LineChart symbol="AAPL" />
         </div>
 
         

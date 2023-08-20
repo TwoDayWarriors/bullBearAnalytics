@@ -5,6 +5,7 @@ import homeVideo from './images/BullBear.mp4';
 import './Home.css';
 
 
+
 const Home = () => {
   const videoRef = useRef(null);
 
