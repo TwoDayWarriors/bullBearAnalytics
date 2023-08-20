@@ -2,17 +2,17 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 
-export const Table2 = () => {
+export const Table2 = (symbol) => {
     let [dataG, setData] = useState([])
     let info = ['1. open','2. high', '3. low', '4. close', '5. volume']
 
     useEffect(() => {
         const fetch = async () => {
-            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=1FIZJL7M2DFILOEC`)).data
+            const data = (await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=1FIZJL7M2DFILOEC`)).data
             setData(data)
         }
         fetch();
-    },[])
+    },[symbol])
 
     let dates = dataG['Time Series (Daily)']
     let augDate = []

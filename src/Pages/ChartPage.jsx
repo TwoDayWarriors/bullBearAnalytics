@@ -1,11 +1,14 @@
-import BarChartAAPL from "./BarChartAAPL";
-import DoughnutChartAAPL from "./DoughnutChartAAPL";
-import PieChartAAPL from "./PieChartAAPL";
-import './DashboardAAPL.css';
-import { LineChart } from './Components/LineChart';
+import BarChart from "../Components/BarChart";
+import DoughnutChart from "../Components/DoughnutChart";
+import PieChart from "../Components/PieChart";
+import '../DashboardAAPL.css';
+import { LineChart } from '../Components/LineChart';
+import { LineChart2 } from '../Components/LineChart2';
+import { Volume } from '../Components/Volume'
+import { Table2 } from "../Components/Table2";
 
 
-const DashboardAAPL = () => {
+const ChartPage = () => {
   return (
     <div className="home">
       
@@ -15,25 +18,40 @@ const DashboardAAPL = () => {
       
         <div className="chart">
         <p>International Filings </p>
-          <BarChartAAPL />
+          <BarChart symbol="AAPL"/>
         </div>
         <div className="chart">
         <p>Company Financial Statements </p>
-          <DoughnutChartAAPL />
+          <DoughnutChart symbol="AAPL" />
         </div>
         <div className="chart">
         <p> Company Enterprise Value </p>
-          <PieChartAAPL />
+          <PieChart symbol="AAPL" />
         </div>
+
         <br/>
+
         <div className="chart">
-        <p> Company Enterprise Value </p>
+        <p> Price by Date </p>
           <LineChart symbol="AAPL" />
         </div>
+
+        <div className="chart">
+        <p> Daily Price</p>
+          <LineChart2 symbol="AAPL" />
+        </div>
+
+        <div className="chart">
+        <p> Volume Month of August </p>
+          <Volume symbol="AAPL" />
+        </div>
+
+        <br/>
+        <Table2 />
 
       </div>
     </div>
   );
 };
 
-export default DashboardAAPL;
+export default ChartPage;

@@ -11,6 +11,7 @@ import DashboardAAPL from './DashboardAAPL';
 import DashboardTSLA from './DashboardTSLA'
 import DashboardAMZN from './DashboardAMZN';
 import { Table2 } from './Components/Table2';
+import ChartPage from './Pages/ChartPage';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/dashboardTSLA" exact={true} element={<DashboardTSLA />} />
         <Route path="/dashboardAMZN" exact={true} element={<DashboardAMZN />} />
         <Route path="/1" exact={true} element={<Table2 />} />
+        <Route path="/2" exact={true} element={<ChartPage />} />
         </Routes>
       </BrowserRouter>
 
