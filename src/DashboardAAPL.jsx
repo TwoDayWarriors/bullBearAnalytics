@@ -4,6 +4,8 @@ import DoughnutChartAAPL from "./DoughnutChartAAPL";
 import PieChartAAPL from "./PieChartAAPL";
 import './DashboardAAPL.css';
 import { LineChart } from './LineChart';
+import { LineChart2 } from './LineChart2';
+import { Volume } from './Volume'
 const DashboardAAPL = () => {
   return (
     <div className="home">
@@ -24,9 +26,20 @@ const DashboardAAPL = () => {
         <p> Company Enterprise Value </p>
           <PieChartAAPL />
         </div>
+        <br/>
         <div className="chart">
         <p> Company Enterprise Value </p>
           <LineChart symbol="AAPL" />
+        </div>
+
+        <div className="chart">
+        <p> Company Enterprise Value </p>
+          <LineChart2 symbol="AAPL" />
+        </div>
+
+        <div className="chart">
+        <p> Company Enterprise Value </p>
+          <Volume symbol="AAPL" />
         </div>
 
         
